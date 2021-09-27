@@ -1,12 +1,10 @@
-import NavBar from "./Navbar";
-
 import List from "./List";
+import ToggleTab from "./ToggleTab";
 
 function App() {
   return (
     <div>
-      <NavBar/>
-      <List/>
+      <List />
     </div>
   );
 }

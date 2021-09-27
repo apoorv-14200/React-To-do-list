@@ -2,6 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import * as firebase from 'firebase/app'
+import 'firebase/firestore';
+
+// Import the functions you need from the SDKs you need
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBPoqh8MMV0ISPIZ_O0Kt6YTSR_gg7SYrc",
+  authDomain: "todolist-e3b4d.firebaseapp.com",
+  projectId: "todolist-e3b4d",
+  storageBucket: "todolist-e3b4d.appspot.com",
+  messagingSenderId: "392471368320",
+  appId: "1:392471368320:web:86a8da2ec618233d1a0c65"
+};
+
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+
+
 
 ReactDOM.render(
   <React.StrictMode>

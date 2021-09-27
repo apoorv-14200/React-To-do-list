@@ -1,86 +1,100 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #ffedcb;
 }
 
-
-.NavBar
-{
+.NavBar {
   position: relative;
   width: 100%;
   height: 70px;
-  background-color: rgb(31, 148, 168); 
+  background-color: rgb(0, 10, 156);
+  margin-bottom: 20px;
 }
 
-.logo
-{
+.logo {
   width: 60px;
   height: 60px;
   margin-top: 5px;
   margin-left: 20px;
 }
+.countimg {
+  position: absolute;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+}
+.count-items {
+  font-size: xx-large;
+  font-family: cursive;
+  position: absolute;
+  padding-bottom: 10px;
+  width: 55px;
+  height: 30px;
+  right: 38px;
+  top: 10px;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
 
-.site-name
-{
+.site-name {
   position: absolute;
   font-size: xx-large;
   font-family: sans-serif;
   font-weight: bold;
-  color: white;
+  color: rgb(255, 255, 255);
   left: 90px;
   top: 20px;
 }
 
-
-.list-container
-{
+.list-container {
   width: 600px;
   height: auto;
   position: relative;
-  margin-left: 30%;
-  margin-top: 5%;
+  margin: 60px auto 10px auto;
   background-color: rgb(0, 83, 83);
   padding: 20px;
 }
 
-.Listform
-{
+.Listform {
   width: 100%;
   height: 70px;
   background-color: rgb(187, 59, 0);
 }
 
-.item-box
-{
+.item-box {
   width: 43%;
   font-size: x-large;
   font-family: cursive;
   height: 40px;
-  margin:10px;
+  margin: 10px;
 }
-.date-input
-{
+.date-input {
   width: 28%;
   font-size: x-large;
   font-family: cursive;
   height: 40px;
-  margin:10px;
+  margin: 10px;
 }
-.add-btn
-{
+.add-btn {
   width: 15%;
   height: 40px;
-  margin:10px;
+  margin: 10px;
   font-size: x-large;
   font-family: sans-serif;
 }
+.add-btn:hover {
+  background-color: white;
+  scale: 1.1;
+}
 
-.ListItem
-{
+.ListItem {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -89,15 +103,14 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: burlywood;
+  transition: 1s ease-in-out;
 }
 
-.checkbox
-{
+.checkbox {
   width: 5%;
   height: 90%;
 }
-.item-name
-{
+.item-name {
   text-align: center;
   width: 40%;
   height: 30px;
@@ -108,11 +121,11 @@ body {
   transition: 0.5s ease-in-out;
 }
 
-.delete-btn
-{
+.delete-btn {
   width: 150px;
   height: 50px;
-  margin-left: 35%;
+  margin-left: 38%;
+  margin-top: 10px;
   background-color: lightgrey;
   color: black;
   font-family: sans-serif;
@@ -123,37 +136,70 @@ body {
   align-items: center;
 }
 
-.delete-btn img{
+.delete-btn img {
   width: 30px;
   height: 30px;
   margin: 5px;
 }
-.deletename
-{
+.deletename {
   width: 70px;
   height: 30px;
 }
 
-.delete-btn:hover
-{
-  opacity: 0.8;
+.delete-btn:hover {
+  background-color: white;
+  scale: 1.1;
 }
 
-.duedate
-{
+.duedate {
   text-align: center;
-  background-color: rgb(0, 255, 200);
-  width: 20%;
+  font-weight: bold;
+  color: rgb(255, 196, 119);
+  background-color: rgb(187, 59, 0);
+  width: 22%;
   height: 30px;
   margin-top: 15px;
   font-size: x-large;
   font-family: sans-serif;
+  border: solid 3px;
+  border-color: rgb(0, 0, 0);
 }
 
-.checked
-{
+.checked {
   text-decoration: line-through;
-  text-decoration-color:white;
+  text-decoration-color: white;
   text-decoration-thickness: 3px;
-  opacity: 0.4;
+  opacity: 0.8;
+  scale: 1.2;
+}
+
+.loading {
+  color: white;
+  margin: 100px auto 100px auto;
+  transition: 1s ease-in-out;
+}
+
+.Toggle-bar {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background-color: inherit;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.toggle {
+  background-color: rgb(0, 10, 156);
+  width: 150px;
+  height: 100%;
+  margin-right: 10px;
+  padding: 5px;
+  text-align: center;
+  color: white;
+  font-size: large;
+  font-family: sans-serif;
+  font-weight: bolder;
+}
+.currenttab {
+  background-color: steelblue;
 }
