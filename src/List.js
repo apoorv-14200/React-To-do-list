@@ -12,47 +12,48 @@ class List extends React.Component {
     this.state = {
       items: [],
       checked_ids: [],
-      loading: true,
+      loading: false,
       deleted: [],
       todotab: true,
+      cur_id:0,
     };
   }
-  componentDidMount() {
-    // firebase.
-    //     firestore()
-    //     .collection('items')
-    //     .get()
-    //     .then((snapshot)=>{
-    //         console.log(snapshot);
-    //         let items=[];
-    //         snapshot.docs.map((doc)=>
-    //         {
-    //             let item=doc.data();
-    //             item['id']=doc.id;
-    //             items.push(item);
-    //         })
-    //         this.setState({
-    //             items:items,
-    //             loading:false,
-    //         });
-    //     });
-    firebase
-      .firestore()
-      .collection("items")
-      .onSnapshot((snapshot) => {
-        console.log(snapshot);
-        let items = [];
-        snapshot.docs.map((doc) => {
-          let item = doc.data();
-          item["id"] = doc.id;
-          items.push(item);
-        });
-        this.setState({
-          items: items,
-          loading: false,
-        });
-      });
-  }
+//   componentDidMount() {
+//     // firebase.
+//     //     firestore()
+//     //     .collection('items')
+//     //     .get()
+//     //     .then((snapshot)=>{
+//     //         console.log(snapshot);
+//     //         let items=[];
+//     //         snapshot.docs.map((doc)=>
+//     //         {
+//     //             let item=doc.data();
+//     //             item['id']=doc.id;
+//     //             items.push(item);
+//     //         })
+//     //         this.setState({
+//     //             items:items,
+//     //             loading:false,
+//     //         });
+//     //     });
+//     firebase
+//       .firestore()
+//       .collection("items")
+//       .onSnapshot((snapshot) => {
+//         console.log(snapshot);
+//         let items = [];
+//         snapshot.docs.map((doc) => {
+//           let item = doc.data();
+//           item["id"] = doc.id;
+//           items.push(item);
+//         });
+//         this.setState({
+//           items: items,
+//           loading: false,
+//         });
+//       });
+//   }
   checkitem = (item) => {
     let checked_ids = this.state.checked_ids;
     checked_ids.push(item.id);
@@ -79,22 +80,22 @@ class List extends React.Component {
       }
     }
     if (indx != items.length) {
-      // items.splice(indx,1);
-      // this.setState({
-      //     items:items,
-      // });
       let deleted = this.state.deleted;
       deleted.push(items[indx]);
       this.setState({
         deleted: deleted,
       });
-      firebase
-        .firestore()
-        .collection("items")
-        .doc(items[indx].id)
-        .delete()
-        .then(() => console.log("deleted successfully"))
-        .catch((error) => console.log("error in deleting", error));
+      items.splice(indx,1);
+      this.setState({
+          items:items,
+      });
+//       firebase
+//         .firestore()
+//         .collection("items")
+//         .doc(items[indx].id)
+//         .delete()
+//         .then(() => console.log("deleted successfully"))
+//         .catch((error) => console.log("error in deleting", error));
       return indx;
     }
     return -1;
@@ -111,31 +112,31 @@ class List extends React.Component {
     });
   };
   additem = (itemname, duedate) => {
-    // let items=this.state.items;
-    // let cur_id=this.state.cur_id;
-    firebase
-      .firestore()
-      .collection("items")
-      .add({
-        itemname: itemname,
-        duedate: duedate,
-      })
-      .then((docRef) => {
-        console.log("ITEM ADDED", docRef);
-      })
-      .catch((error) => {
-        console.log("error occurred", error);
-      });
-    // items.push({
-    //     itemname:itemname,
-    //     duedate:duedate,
-    //     id:cur_id,
-    // });
-    // cur_id+=1;
-    // this.setState({
-    //     items:items,
-    //     cur_id:cur_id,
-    // });
+    let items=this.state.items;
+    let cur_id=this.state.cur_id;
+//     firebase
+//       .firestore()
+//       .collection("items")
+//       .add({
+//         itemname: itemname,
+//         duedate: duedate,
+//       })
+//       .then((docRef) => {
+//         console.log("ITEM ADDED", docRef);
+//       })
+//       .catch((error) => {
+//         console.log("error occurred", error);
+//       });
+    items.push({
+        itemname:itemname,
+        duedate:duedate,
+        id:cur_id,
+    });
+    cur_id+=1;
+    this.setState({
+        items:items,
+        cur_id:cur_id,
+    });
   };
   toggletab = () => {
     let tab = this.state.todotab;
