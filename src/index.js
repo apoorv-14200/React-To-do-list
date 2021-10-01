@@ -9,13 +9,13 @@ import 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  //here goes the keys of firebase api
-};
+// // Your web app's Firebase configuration
+// const firebaseConfig = {
+//   //here goes the keys of firebase api
+// };
 
-// Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
+// // Initialize Firebase
+// const app = firebase.initializeApp(firebaseConfig);
 
 
 
